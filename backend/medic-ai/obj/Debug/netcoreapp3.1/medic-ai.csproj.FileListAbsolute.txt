@@ -1,9 +1,0 @@
-F:\medic-support-system-master\backend\medic-ai\bin\Debug\netcoreapp3.1\medic-ai.deps.json
-F:\medic-support-system-master\backend\medic-ai\bin\Debug\netcoreapp3.1\medic-ai.dll
-F:\medic-support-system-master\backend\medic-ai\bin\Debug\netcoreapp3.1\medic-ai.pdb
-F:\medic-support-system-master\backend\medic-ai\obj\Debug\netcoreapp3.1\medic-ai.csproj.AssemblyReference.cache
-F:\medic-support-system-master\backend\medic-ai\obj\Debug\netcoreapp3.1\medic-ai.AssemblyInfoInputs.cache
-F:\medic-support-system-master\backend\medic-ai\obj\Debug\netcoreapp3.1\medic-ai.AssemblyInfo.cs
-F:\medic-support-system-master\backend\medic-ai\obj\Debug\netcoreapp3.1\medic-ai.csproj.CoreCompileInputs.cache
-F:\medic-support-system-master\backend\medic-ai\obj\Debug\netcoreapp3.1\medic-ai.dll
-F:\medic-support-system-master\backend\medic-ai\obj\Debug\netcoreapp3.1\medic-ai.pdb
