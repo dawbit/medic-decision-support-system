@@ -1,0 +1,14 @@
+<!--Navbar-->
+<mat-toolbar color="primary" class="navbar">
+  <div>MSCinema</div>
+  <div *ngIf="isLoggedIn">
+    <div *ngIf="userRole == 'Admin'">
+      <span><a routerLink="showings-add">Showings</a></span>
+      <span><a routerLink="hall-add">Halls</a></span>
+      <span><a routerLink="movies-add">Movies</a></span>
+      <span><a routerLink="user-edit">Users</a></span>
+    </div>
+    <span><a routerLink="tickets-book">Tickets</a></span>
+    <span><a (click)="logout()">Logout</a></span>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,45 @@
+<div class="card">
+
+  <h5 class="card-header info-color lighten-1 white-text text-center py-4">
+    <strong>sign-in</strong>
+  </h5>
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form [formGroup]="loginForm" class="text-center" style="color: #757575;" (ngSubmit)="loginSubmit()" action="#!">
+
+      <!-- Login -->
+      <div class="md-form">
+        <input mdbInput type="text" id="materialLoginFormLogin" class="form-control" formControlName="userName">
+        <label for="materialLoginFormLogin">{{'userName'}}</label>
+      </div>
+
+      <!-- Password -->
+      <div class="md-form mt-0">
+        <input mdbInput type="password" id="materialLoginFormPassword" class="form-control" formControlName="password">
+        <label for="materialLoginFormPassword">{{'password'}}</label>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <div>
+          <!-- Remember me -->
+          <div class="form-check">
+            <input mdbInput type="checkbox" class="form-check-input" id="materialLoginFormRemember">
+            <label class="form-check-label" for="materialLoginFormRemember">remember-me</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sign in button -->
+      <button class="btn btn-info btn-block my-4" type="submit" [disabled] = "!loginForm.valid">
+        sign-in!
+      </button>
+
+    </form>
+    <!-- Form -->
+
+  </div>
+
+</div>

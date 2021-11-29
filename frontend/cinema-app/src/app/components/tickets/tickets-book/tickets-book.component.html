@@ -1,0 +1,44 @@
+<!-- <form [formGroup] = "ticketsForm"> -->
+  <ng-container *ngIf = "!choosenShowing">
+    <div *ngFor = "let combined of showingsAndMovies$ | async">
+      <app-single-showing [showing] = "combined" (newShowingEvent) = "chooseShowing($event)"></app-single-showing>
+    </div>
+  </ng-container>
+
+  <ng-container class = "div-table" *ngIf = "choosenHall">
+    wybierz miejsce [rząd | kolumna]
+    <br>
+    <!-- <div formArrayName = "buttons"> -->
+      <div class = "div-table-row" *ngFor = "let row of rows; let i = index">
+        <div class = "div-table-col" *ngFor = "let col of cols; let j = index">
+          <!-- <input type="radio" name = "seatRadio" (click)="bookSeat(row, col)" value="{{row * col}}"> -->
+
+          <button mat-button color="warn" class = "seats" (click)="setCurrentSeat(col, row)"
+            [disabled] = "(currentSeatCol == row && currentSeatRow == col) || isTaken(row, col)">{{row}} | {{col}}
+          </button>
+        </div>
+        <br>
+      </div>
+    <!-- </div> -->
+
+    <br>
+    <ng-container *ngIf="!bought">
+      <button mat-button mat-button color="warn" *ngIf="!booked" (click)="bookTicket()">Rezerwuj</button>
+      <ng-container *ngIf="error">
+        {{error}}
+      </ng-container>
+      <ng-container *ngIf="booked">
+        You have reserved a ticket at {{reservedTicket.fieldX}} row and {{reservedTicket.fieldY}} col.
+        <button mat-button color="warn" (click)="buyTicket()">Buy</button>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="bought">
+      You bought a ticket at {{reservedTicket.fieldX}} row and {{reservedTicket.fieldY}} col succesfully
+    </ng-container>
+  </ng-container>
+
+
+
+
+
+  <!-- </form> -->

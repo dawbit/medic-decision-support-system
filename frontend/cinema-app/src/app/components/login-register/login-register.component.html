@@ -1,0 +1,10 @@
+<ng-container>
+  <div *ngIf = "!loggedIn && !register" class = "log-reg-card">
+    <app-login></app-login>
+  </div>
+
+  <ng-container *ngIf="!loggedIn && register">
+    <app-register></app-register>
+  </ng-container>
+</ng-container>
+<button *ngIf="!loggedIn" class="btn btn-info btn-block my-4" (click)="register = !register">Change form</button>
