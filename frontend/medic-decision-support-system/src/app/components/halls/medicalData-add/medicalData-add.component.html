@@ -1,0 +1,72 @@
+<div class = "card">
+  <h5 class="card-header info-color lighten-1 white-text text-center py-4">
+    <strong>'Add new medical data'</strong>
+  </h5>
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form [formGroup]="medicalDataForm" class="text-center" style="color: #757575;" (ngSubmit)="medicalDataAddSubmit()" action="#!">
+
+      <!-- pregnancies -->
+      <div class="md-form">
+        <input mdbInput type="number" id="pregnancies" class="form-control" formControlName="pregnancies">
+        <label for="pregnancies">Pregnancies</label>
+      </div>
+
+      <!-- glucose -->
+      <div class="md-form">
+        <input mdbInput type="number" id="glucose" class="form-control" formControlName="glucose">
+        <label for="glucose">Glucose</label>
+      </div>
+
+      <!-- bloodPressure -->
+      <div class="md-form">
+        <input mdbInput type="number" id="bloodPressure" class="form-control" formControlName="bloodPressure">
+        <label for="bloodPressure">Blood Pressure</label>
+      </div>
+
+      <!-- skinThickness -->
+      <div class="md-form">
+        <input mdbInput type="number" id="skinThickness" class="form-control" formControlName="skinThickness">
+        <label for="skinThickness">Skin Thickness</label>
+      </div>
+
+      <!-- insulin -->
+      <div class="md-form">
+        <input mdbInput type="number" id="insulin" class="form-control" formControlName="insulin">
+        <label for="insulin">Insulin</label>
+      </div>
+
+      <!-- diabetesPedigreeFunction -->
+      <div class="md-form">
+        <input mdbInput type="number" id="diabetesPedigreeFunction" class="form-control" formControlName="diabetesPedigreeFunction">
+        <label for="diabetesPedigreeFunction">Diabetes Pedigree Function</label>
+      </div>
+
+      <!-- bmi -->
+      <div class="md-form">
+        <input mdbInput type="number" id="bmi" class="form-control" formControlName="bmi">
+        <label for="bmi">bmi</label>
+      </div>
+
+      <!-- age -->
+      <div class="md-form">
+        <input mdbInput type="number" id="age" class="form-control" formControlName="age">
+        <label for="age">age</label>
+      </div>
+
+
+
+      <!-- Add button -->
+      <button class="btn btn-info btn-block my-4" type="submit" [disabled] = "!medicalDataForm.valid">
+        Add new medical data
+      </button>
+
+    </form>
+    <!-- Form -->
+
+  </div>
+
+</div>

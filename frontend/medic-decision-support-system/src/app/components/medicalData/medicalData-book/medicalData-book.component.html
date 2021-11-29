@@ -1,0 +1,43 @@
+<div class="container mt-5">
+
+  <h2>Medical Data</h2>
+
+  <table class="table table-striped">
+    <thead>
+        <tr>
+          <th>pregnancies</th>
+          <th>glucose</th>
+          <th>bloodPressure</th>
+          <th>skinThickness</th>
+          <th>insulin</th>
+          <th>diabetesPedigreeFunction</th>
+          <th>bmi</th>
+          <th>age</th>
+          <th>Predict</th>
+          <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medicalData of MedicalData">
+        <td>{{ medicalData.pregnancies }}</td>
+        <td>{{ medicalData.glucose }}</td>
+        <td>{{ medicalData.bloodPressure }}</td>
+        <td>{{ medicalData.skinThickness }}</td>
+        <td>{{ medicalData.insulin }}</td>
+        <td>{{ medicalData.diabetesPedigreeFunction }}</td>
+        <td>{{ medicalData.bmi }}</td>
+        <td>{{ medicalData.age }}</td>
+        <td>
+          <button class="btn btn-info btn-block my-3" type="submit" (click)="predict(medicalData.medicalDataId)">
+             Predict
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-info btn-block my-3" type="submit" (click)="result(medicalData.medicalDataId)">
+            Result
+         </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

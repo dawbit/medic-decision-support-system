@@ -2,23 +2,6 @@
 
 <form [formGroup]="showingForm" class="text-center" style="color: #757575;" (ngSubmit)="addShowing()" action="#!">
 
-  <mat-form-field class="example-full-width">
-    <input type="text" placeholder="Movie" aria-label="Movie" matInput [formControl]="movieControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayMovieFieldName">
-      <mat-option *ngFor="let movie of movies" [value]="movie">
-        {{movie.title}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-
-  <mat-form-field class="example-full-width">
-    <input type="text" placeholder="Hall" aria-label="Hall" matInput [formControl]="hallControl" [matAutocomplete]="auto2">
-    <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayHallFieldName">
-      <mat-option *ngFor="let hall of halls" [value]="hall">
-        {{hall.name}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
 
 
   <input type="datetime-local" id="meeting-time" name="meeting-time" formControlName="date">

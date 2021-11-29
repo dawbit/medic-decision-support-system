@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  private apiURL = GlobalConstants.apiURL + '/api/auth';
+  private apiURL = GlobalConstants.apiURL + '/api';
   private baseUrl = GlobalConstants.apiURL;
   private httpOptions = GlobalConstants.httpOptions;
   // private userId = new BehaviorSubject<string | undefined>(undefined);
@@ -31,7 +31,7 @@ getUserId2(): Observable<string>{
 }
 
 login(user: User): Observable<any>{
-  return this.http.post(this.apiURL + '/login',
+  return this.http.post(this.apiURL + '/auth/login',
   {
     UserName: user.userName,
     Password: user.password
@@ -43,7 +43,7 @@ login(user: User): Observable<any>{
 }
 
 register(user: User): Observable<any> {
-  return this.http.post(this.apiURL + '/register', user, { observe: 'response'});
+  return this.http.post(this.apiURL + '/Users', user, { observe: 'response'});
 }
 
 getUserId(username: string): Observable<any>{

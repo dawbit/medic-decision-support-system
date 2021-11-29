@@ -1,10 +1,10 @@
 import { UserIdService } from './../../../services/user-id.service';
 import { ShowingService } from './../../../services/showing.service';
-import { Hall } from './../../../interfaces/Hall';
+import { MedicalData } from '../../../interfaces/MedicalData';
 import { Movie } from './../../../interfaces/Movie';
 import { Showing } from './../../../interfaces/Showing';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { HallService } from './../../../services/hall.service';
+import { MedicalDataService } from '../../../services/medicalData.service';
 import { MovieService } from './../../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,12 +16,12 @@ import { Component, OnInit } from '@angular/core';
 export class ShowingsAddComponent implements OnInit {
 
   movies = [];
-  halls = [];
+  medicalDatas = [];
   showingForm: FormGroup;
 
   constructor(
     private movieService: MovieService,
-    private hallService: HallService,
+    private medicalDataService: MedicalDataService,
     private ShowingService: ShowingService,
     private userIdService: UserIdService
   ) { }
@@ -35,17 +35,17 @@ export class ShowingsAddComponent implements OnInit {
     )
 
     this.showingForm = new FormGroup({
-      hallControl: new FormControl('', Validators.required),
+      medicalDataControl: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required),
       movieControl: new FormControl('', Validators.required),
     })
 
     this.getAllMovies();
-    this.getAllHalls();
+    this.getAllMedicalDatas();
   }
 
-  get hallControl() {
-    return this.showingForm.get('hallControl');
+  get medicalDataControl() {
+    return this.showingForm.get('medicalDataControl');
   }
 
   get movieControl() {
@@ -54,10 +54,6 @@ export class ShowingsAddComponent implements OnInit {
 
   displayMovieFieldName(movie?: Movie): string | undefined {
     return movie ? movie.title : undefined;
-  }
-
-  displayHallFieldName(hall?: Hall): string | undefined {
-    return hall ? hall.name : undefined;
   }
 
   getAllMovies(): void{
@@ -75,14 +71,20 @@ export class ShowingsAddComponent implements OnInit {
     )
   }
 
-  getAllHalls(): void{
-    this.hallService.getAllHalls().subscribe(
+  getAllMedicalDatas(): void{
+    this.medicalDataService.getAllMedicalDatas().subscribe(
       data => {
         for (const key in data){
           if (data.hasOwnProperty(key)){
-            this.halls.push({
-              name: data[key].name,
-              id: data[key].id
+            this.medicalDatas.push({
+              pregnancies: data[key].pregnancies,
+              glucose: data[key].glucose,
+              bloodPressure: data[key].bloodPressure,
+              skinThickness: data[key].skinThickness,
+              insulin: data[key].insulin,
+              diabetesPedigreeFunction: data[key].diabetesPedigreeFunction,
+              bmi: data[key].bmi,
+              age: data[key].age
             });
           }
         }
@@ -93,7 +95,6 @@ export class ShowingsAddComponent implements OnInit {
   addShowing(): void{
     let show: Showing = {
       movie: this.showingForm.get('movieControl').value.id,
-      hall: this.showingForm.get('hallControl').value.id,
       time: this.showingForm.get('date').value
     }
 
