@@ -17,11 +17,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login-register/login/login/login.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
-import { MedicalDataAddComponent } from './components/halls/medicalData-add/medicalData-add.component';
-import { MoviesAddComponent } from './components/Movies/movies-add/movies-add.component';
-import { ShowingsAddComponent } from './components/shownigs/showings-add/showings-add.component';
+import { MedicalDataAddComponent } from './components/medicalData-add/medicalData-add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SingleShowingComponent } from './components/shownigs/single-showing/single-showing.component';
 import { RegisterComponent } from './components/login-register/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -35,10 +32,7 @@ import { MedicalDataBookComponent } from './components/medicalData/medicalData-b
     LoginComponent,
     LoginRegisterComponent,
     MedicalDataAddComponent,
-    MoviesAddComponent,
-    ShowingsAddComponent,
     MedicalDataBookComponent,
-    SingleShowingComponent,
     RegisterComponent,
     HomeComponent,
     NavbarComponent,

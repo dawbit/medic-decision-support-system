@@ -1,9 +1,9 @@
-import { MedicalDataService } from '../../../services/medicalData.service';
-import { MedicalData } from '../../../interfaces/MedicalData';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { TokenStorageService } from 'src/app/services/security/token-storage.service';
+import { MedicalDataService } from 'src/app/services/medicalData.service';
+import { MedicalData } from 'src/app/interfaces/MedicalData';
 
 @Component({
   selector: 'app-medical-data-add',
