@@ -13,6 +13,7 @@ import { MedicalDataService } from 'src/app/services/medicalData.service';
 export class MedicalDataBookComponent implements OnInit {
 
   MedicalData: MedicalData[] = [];
+  learnAccuracy: number = 0;
 
   constructor(
     private medicalDataService: MedicalDataService
@@ -39,16 +40,25 @@ export class MedicalDataBookComponent implements OnInit {
     )
   }
 
-  predict(medicalDataId): void {
-    this.medicalDataService.predictMedicalDataById(medicalDataId).subscribe(
+  predict(medicalData): void {
+    this.medicalDataService.predictMedicalDataById(medicalData.medicalDataId).subscribe(
       res => {
-        console.log(res);
+        medicalData.predict = res['score'];
       }
     )
   }
 
   result(userId): void {
 
+  }
+
+  learn(): void {
+    this.medicalDataService.learn().subscribe(
+      res => {
+        console.log(res);
+        this.learnAccuracy = res;
+      }
+    )
   }
 
   ngOnDestroy() {

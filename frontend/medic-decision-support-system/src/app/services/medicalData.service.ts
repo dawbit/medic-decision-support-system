@@ -29,4 +29,9 @@ getMedicalDataById(id: string): Observable<MedicalData>{
 predictMedicalDataById(id: string): Observable<MedicalData>{
   return this.http.post<MedicalData>(this.apiURL + '/' + id + '/prediction', {});
 }
+
+learn(): Observable<number>{
+  return this.http.post<number>(this.apiURL + '/learn', {});
+}
+
 }

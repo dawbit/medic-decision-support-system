@@ -8,6 +8,7 @@ export interface MedicalData {
     bmi: number,
     age: number,
     userId: string,
-    medicalDataId?: string
+    medicalDataId?: string,
+    predict?: number
 }
 
