@@ -24,6 +24,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { MedicalDataBookComponent } from './components/medicalData/medicalData-book/medicalData-book.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { MedicalDataBookComponent } from './components/medicalData/medicalData-b
     MatInputModule,
     MatAutocompleteModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   exports: [
     MatInputModule

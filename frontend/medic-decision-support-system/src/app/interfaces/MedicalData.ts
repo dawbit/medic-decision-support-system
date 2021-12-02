@@ -9,6 +9,7 @@ export interface MedicalData {
     age: number,
     userId: string,
     medicalDataId?: string,
-    predict?: number
+    predict?: number,
+    result?: boolean
 }
 

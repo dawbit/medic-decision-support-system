@@ -4,6 +4,9 @@ import { UserService } from 'src/app/services/user.service';
 import { TokenStorageService } from 'src/app/services/security/token-storage.service';
 import { MedicalDataService } from 'src/app/services/medicalData.service';
 import { MedicalData } from 'src/app/interfaces/MedicalData';
+import {MatSelectModule} from '@angular/material/select';
+import {FormControl} from '@angular/forms';
+import { User } from 'src/app/interfaces/User';
 
 @Component({
   selector: 'app-medical-data-add',
@@ -14,6 +17,7 @@ export class MedicalDataAddComponent implements OnInit {
 
   medicalDataForm: FormGroup;
   medicalData: MedicalData;
+  users: User[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,12 +37,25 @@ export class MedicalDataAddComponent implements OnInit {
       bmi: 0,
       age: 0,
       userId: ""
-    })
+    });
+    this.userService.getUsers().subscribe(
+      res => {
+        this.users = res.filter(user => user.role == 'Patient');
+      }
+    )
   }
 
   medicalDataAddSubmit(){
     this.medicalData = this.medicalDataForm.value;
 
+    this.medicalDataService.addMedicalData(this.medicalData).subscribe(
+      res => {
+        if (res && res.ok && res.status === 200) {
+          console.log('Pomyslnie dodano medicalData');
+          console.log(res);
+        }
+      });
+/*
     this.userService.getUserId(this.tokenStorageService.getUser()).subscribe(
       res => {
         this.medicalData.userId = res[0].userId;
@@ -55,7 +72,7 @@ export class MedicalDataAddComponent implements OnInit {
           }
         )
       }
-    )
+    )*/
 
 
   }

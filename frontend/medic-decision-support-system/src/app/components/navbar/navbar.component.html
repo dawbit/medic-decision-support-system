@@ -3,10 +3,13 @@
   <div>Medical Support System</div>
   <div *ngIf="isLoggedIn">
     <div *ngIf="userRole == 'Admin'">
-      <span><a routerLink="medical-data-add">Medical Data Add</a></span>
       <span><a routerLink="user-create">Users</a></span>
-      <span><a routerLink="medicalData-book">Medical Data</a></span>
+      <span><a routerLink="medical-data-add">Medical Data Add</a></span>
     </div>
+    <div *ngIf="userRole == 'Doctor'">
+      <span><a routerLink="medical-data-add">Medical Data Add</a></span>
+    </div>
+    <span><a routerLink="medicalData-book">Medical Data</a></span>
     <span><a (click)="logout()">Logout</a></span>
   </div>
 </mat-toolbar>

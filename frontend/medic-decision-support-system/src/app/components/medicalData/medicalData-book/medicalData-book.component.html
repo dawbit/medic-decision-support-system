@@ -1,7 +1,7 @@
 <div class="container mt-5">
 
   <h2>Medical Data</h2>
-  <button class="btn btn-info btn-block my-3" type="submit" (click)="learn()">
+  <button *ngIf="userRole !== 'Patient'" class="btn btn-info btn-block my-3" type="submit" (click)="learn()">
     Learn {{'Accuracy: ' + learnAccuracy}}
  </button>
 
@@ -16,8 +16,8 @@
           <th>diabetesPedigreeFunction</th>
           <th>bmi</th>
           <th>age</th>
-          <th>Predict</th>
-          <th>Result</th>
+          <th *ngIf="userRole !== 'Patient'">Predict</th>
+          <th *ngIf="userRole !== 'Patient'">Result</th>
         </tr>
     </thead>
     <tbody>
@@ -31,15 +31,15 @@
         <td>{{ medicalData.diabetesPedigreeFunction }}</td>
         <td>{{ medicalData.bmi }}</td>
         <td>{{ medicalData.age }}</td>
-        <td>
-          <button class="btn btn-info btn-block my-3" type="submit" (click)="predict(medicalData)">
+        <td *ngIf="userRole !== 'Patient'">
+          <button *ngIf="!medicalData.result" class="btn btn-info btn-block my-3" type="submit" (click)="predict(medicalData)">
              Predict
              {{medicalData.predict ? medicalData.predict < 0 ? ' - is diabetic' : ' - is not diabetic' : ''}}
           </button>
         </td>
-        <td>
-          <button class="btn btn-info btn-block my-3" type="submit" (click)="result(medicalData.medicalDataId)">
-            Result
+        <td *ngIf="userRole !== 'Patient'">
+          <button class="btn btn-info btn-block my-3" type="submit" (click)="result(medicalData)">
+            {{medicalData.result !== undefined ? medicalData.result : 'NULL'}}
          </button>
         </td>
       </tr>

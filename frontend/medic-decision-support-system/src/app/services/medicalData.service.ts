@@ -34,4 +34,8 @@ learn(): Observable<number>{
   return this.http.post<number>(this.apiURL + '/learn', {});
 }
 
+result(medicalData: MedicalData): Observable<void>{
+  return this.http.post<void>(this.apiURL + '/' + medicalData.medicalDataId + '/result', {result: !medicalData.result});
+}
+
 }

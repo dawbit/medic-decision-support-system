@@ -23,7 +23,7 @@ const routes: Routes = [
   path: 'medical-data-add',
   component: MedicalDataAddComponent, canActivate: [AuthGuard, RoleGuardService],
   data: {
-    expectedRole: ['Admin']
+    expectedRole: ['Admin', 'Doctor']
   }
 },
 {

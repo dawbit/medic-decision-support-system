@@ -9,6 +9,19 @@
     <!-- Form -->
     <form [formGroup]="medicalDataForm" class="text-center" style="color: #757575;" (ngSubmit)="medicalDataAddSubmit()" action="#!">
 
+      <!-- patient -->
+      <div class="md-form">
+        <mat-form-field id="patient" >
+          <mat-select formControlName="userId" class="form-control" style="background-color: cadetblue;">
+            <mat-option *ngFor="let user of users" [value]="user.userId">
+              {{user.firstName + ' ' + user.lastName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+      <label for="patient">Patient</label>
+
       <!-- pregnancies -->
       <div class="md-form">
         <input mdbInput type="number" id="pregnancies" class="form-control" formControlName="pregnancies">

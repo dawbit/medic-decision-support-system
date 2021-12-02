@@ -61,4 +61,8 @@ getUsers(): Observable<any>{
 updateUser(user: User, userId: string): Observable<any>{
   return this.http.patch(this.baseUrl + "/api/users/" + userId, user, this.httpOptions);
 }
+
+getMe(): Observable<any>{
+  return this.http.get(this.baseUrl + '/api/users/me');
+}
 }
