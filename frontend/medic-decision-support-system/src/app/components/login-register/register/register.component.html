@@ -1,0 +1,29 @@
+<div class="card">
+
+<form [formGroup]="registerForm" class="card-body px-lg-5 pt-0 text-center">
+
+  <mat-form-field>
+    <input matInput placeholder="First name" formControlName="firstName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Last name" formControlName="lastName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="User name" formControlName="userName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="password" placeholder="Password" formControlName="password">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Role" formControlName="role">
+  </mat-form-field>
+
+  <br>
+  <button button class="btn btn-info btn-block my-4" (click)="register()" >Register</button>
+
+</form>
+</div>

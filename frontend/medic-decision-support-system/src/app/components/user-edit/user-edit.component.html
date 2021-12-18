@@ -1,0 +1,8 @@
+<form [formGroup]="userEditForm">
+  <div *ngFor="let user of users$ | async">
+    Login: <input type="text" readonly="readonly" [value]="user.userName">
+    role:
+    <input type="number" [value]="user.role" ([ngModel]) = "user.role" #nam>
+    <button mat-button color="warn" (click)="onClick(user.userName, number(nam.value), user.firstName, user.lastName, user.id)" color="primary">Update</button>
+  </div>
+</form>
